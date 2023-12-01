@@ -1,4 +1,4 @@
-using UnityEngine;
+	using UnityEngine;
 #if ENABLE_INPUT_SYSTEM
 using UnityEngine.InputSystem;
 #endif
@@ -13,6 +13,7 @@ namespace StarterAssets
 		public bool jump;
 		public bool sprint;
 		//public bool wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww;
+		public bool leftclick;
 
 		[Header("Movement Settings")]
 		public bool analogMovement;
@@ -35,14 +36,21 @@ namespace StarterAssets
 			}
 		}
 
+
 		public void OnJump(InputValue value)
 		{
+			//print("mf jump");
 			JumpInput(value.isPressed);
 		}
 
 		public void OnSprint(InputValue value)
 		{
 			SprintInput(value.isPressed);
+		}
+
+		public void OnLeftClick(InputValue value){
+			//print("no shot");
+			LeftClickInput(value.isPressed);
 		}
 #endif
 
@@ -65,6 +73,11 @@ namespace StarterAssets
 		public void SprintInput(bool newSprintState)
 		{
 			sprint = newSprintState;
+		}
+
+		public void LeftClickInput(bool newLeftClickState)
+		{
+			leftclick = newLeftClickState;
 		}
 		
 		private void OnApplicationFocus(bool hasFocus)

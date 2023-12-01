@@ -115,6 +115,7 @@ namespace StarterAssets
 			JumpAndGravity();
 			GroundedCheck();
 			Move();
+			Grab();
 			//get clicks?
 			//GrabItem();
 		}
@@ -132,23 +133,7 @@ namespace StarterAssets
 		}
 
 
-        RaycastHit DetectHit(Vector3 startPos, float distance, Vector3 direction)
-        {
-            //init ray to save the start and direction values
-            Ray ray = new Ray(startPos, direction);
-            //varible to hold the detection info
-            RaycastHit hit;
-            //the end Pos which defaults to the startPos + distance 
-            Vector3 endPos = startPos + (distance * direction);
-            if (Physics.Raycast(ray, out hit, distance))
-            {
-                //if we detect something
-                endPos = hit.point;
-            }
-            // 2 is the duration the line is drawn, afterwards its deleted
-            Debug.DrawLine(startPos, endPos, Color.green, 2);
-            return hit;
-        }
+        
         
 		private void CameraRotation()
 		{
@@ -170,13 +155,6 @@ namespace StarterAssets
 				// rotate the player left and right
 				transform.Rotate(Vector3.up * _rotationVelocity);
 			}
-
-			//check Raycast?
-			var pizza = DetectHit(CinemachineCameraTarget.transform.position, 10f, CinemachineCameraTarget.transform.forward);
-			//Debug.Log(pizza);
-			//pizza.
-
-
         }
 
 		
@@ -184,6 +162,7 @@ namespace StarterAssets
 
 		private void Move()
 		{
+
 			// set target speed based on move speed, sprint speed and if sprint is pressed
 			float targetSpeed = _input.sprint ? SprintSpeed : MoveSpeed;
 
@@ -276,6 +255,48 @@ namespace StarterAssets
 				_verticalVelocity += Gravity * Time.deltaTime;
 			}
 		}
+
+		RaycastHit DetectHit(Vector3 startPos, float distance, Vector3 direction)
+		{
+			//init ray to save the start and direction values
+			Ray ray = new Ray(startPos, direction);
+			//varible to hold the detection info
+			RaycastHit hit;
+			//the end Pos which defaults to the startPos + distance 
+			Vector3 endPos = startPos + (distance * direction);
+			if (Physics.Raycast(ray, out hit, distance))
+			{
+				//if we detect something
+				endPos = hit.point;
+			}
+			// 2 is the duration the line is drawn, afterwards its deleted
+			Debug.DrawLine(startPos, endPos, Color.green, 2);
+			return hit;
+		}
+
+		private void Grab(){
+			//check Raycast?
+			//PUT ON GRABBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+			
+			var hit = DetectHit(CinemachineCameraTarget.transform.position, 10f, CinemachineCameraTarget.transform.forward);
+			//print(_input.leftclick);
+			// print(_input.sprint);
+			if (hit.transform != null){
+				if (_input.leftclick){
+					print("TRYING TO GRAB");
+					if (hit.transform.gameObject.tag == "Grab"){
+						print("FOUND GRABBING ITEEMMMMM");
+						
+
+					}
+					
+				}
+			}
+
+		}
+
+
+		//OTHER SHIT
 
 		private static float ClampAngle(float lfAngle, float lfMin, float lfMax)
 		{
