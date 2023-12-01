@@ -275,5 +275,14 @@ namespace Borodar.FarlandSkies.LowPoly
             CurrentCloudsParam = _cloudsParamsList.GetParamPerTime(TimeOfDay);
             _skyboxController.CloudsTint = CurrentCloudsParam.TintColor;
         }
+
+        public float GetSunrise()
+        {
+            return _sunrise;
+        }
+        public float GetSunset()
+        {
+            return _sunset;
+        }
     }
 }

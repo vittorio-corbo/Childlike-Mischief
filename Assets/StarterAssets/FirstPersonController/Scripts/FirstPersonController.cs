@@ -115,6 +115,8 @@ namespace StarterAssets
 			JumpAndGravity();
 			GroundedCheck();
 			Move();
+			//get clicks?
+			//GrabItem();
 		}
 
 		private void LateUpdate()
@@ -129,6 +131,25 @@ namespace StarterAssets
 			Grounded = Physics.CheckSphere(spherePosition, GroundedRadius, GroundLayers, QueryTriggerInteraction.Ignore);
 		}
 
+
+        RaycastHit DetectHit(Vector3 startPos, float distance, Vector3 direction)
+        {
+            //init ray to save the start and direction values
+            Ray ray = new Ray(startPos, direction);
+            //varible to hold the detection info
+            RaycastHit hit;
+            //the end Pos which defaults to the startPos + distance 
+            Vector3 endPos = startPos + (distance * direction);
+            if (Physics.Raycast(ray, out hit, distance))
+            {
+                //if we detect something
+                endPos = hit.point;
+            }
+            // 2 is the duration the line is drawn, afterwards its deleted
+            Debug.DrawLine(startPos, endPos, Color.green, 2);
+            return hit;
+        }
+        
 		private void CameraRotation()
 		{
 			// if there is an input
@@ -149,7 +170,17 @@ namespace StarterAssets
 				// rotate the player left and right
 				transform.Rotate(Vector3.up * _rotationVelocity);
 			}
-		}
+
+			//check Raycast?
+			var pizza = DetectHit(CinemachineCameraTarget.transform.position, 10f, CinemachineCameraTarget.transform.forward);
+			//Debug.Log(pizza);
+			//pizza.
+
+
+        }
+
+		
+
 
 		private void Move()
 		{
@@ -264,5 +295,13 @@ namespace StarterAssets
 			// when selected, draw a gizmo in the position of, and matching radius of, the grounded collider
 			Gizmos.DrawSphere(new Vector3(transform.position.x, transform.position.y - GroundedOffset, transform.position.z), GroundedRadius);
 		}
+
+
+		//[SerializeField GameObject item]
+		/*public void GrabItem()
+		{
+			Debug.Log(_input.leftclick)
+
+		}*/
 	}
 }

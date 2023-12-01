@@ -1,5 +1,6 @@
 ﻿using Borodar.FarlandSkies.Core.Helpers;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Borodar.FarlandSkies.LowPoly
 {
@@ -29,6 +30,7 @@ namespace Borodar.FarlandSkies.LowPoly
 
         protected void Update()
         {
+            float delta_day = CycleProgress;
             if (Application.isPlaying && !Paused)
             {
                 CycleProgress += (Time.deltaTime / CycleDuration) * 100f;
@@ -36,6 +38,31 @@ namespace Borodar.FarlandSkies.LowPoly
             }
 
             UpdateTimeOfDay();
+
+            //Debug.Log("time day");
+            //Debug.Log(_dayNightCycle.TimeOfDay);
+            //Debug.Log("cycle proges");
+            //Debug.Log(CycleProgress);
+            //Debug.Log(CycleDuration);
+            //Debug.Log("");
+
+            //say: NEW DAY
+            //get day and night values from other script
+            //if  (delta_day <= 25 && 25 <= CycleProgress)
+            if  (delta_day <= _dayNightCycle.GetSunrise() && _dayNightCycle.GetSunrise() <= CycleProgress)
+            {
+                Debug.Log("new day");
+            }
+            else if ((delta_day <= _dayNightCycle.GetSunset() && _dayNightCycle.GetSunset() <= CycleProgress))
+            //else if ((delta_day <= 85 && 85 <= CycleProgress))
+            {
+                //Debug.Log("new night");
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
+            }
+
+
+            //say: NEW NIGHT
         }
 
         protected void OnValidate()
