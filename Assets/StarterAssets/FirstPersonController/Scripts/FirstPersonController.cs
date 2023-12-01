@@ -270,10 +270,14 @@ namespace StarterAssets
 				endPos = hit.point;
 			}
 			// 2 is the duration the line is drawn, afterwards its deleted
-			Debug.DrawLine(startPos, endPos, Color.green, 2);
+			//Debug.DrawLine(startPos, endPos, Color.green, 2);
 			return hit;
 		}
 
+		// [SerializeField GameObject heldItem]
+		[Space(10)]
+		[Header("GrabItem")]
+		[SerializeField] GameObject item;
 		private void Grab(){
 			//check Raycast?
 			//PUT ON GRABBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
@@ -283,9 +287,21 @@ namespace StarterAssets
 			// print(_input.sprint);
 			if (hit.transform != null){
 				if (_input.leftclick){
-					print("TRYING TO GRAB");
+					//print("TRYING TO GRAB");
 					if (hit.transform.gameObject.tag == "Grab"){
-						print("FOUND GRABBING ITEEMMMMM");
+						//print("FOUND GRABBING ITEEMMMMM");
+						//object1.transform.SetParent(object2 .transform.parent);
+						if (item.transform.parent == hit.transform.parent){
+							//drop
+							hit.transform.SetParent(null);
+							hit.transform.GetComponent<Rigidbody>().velocity = hit.transform.forward * 10f;
+							
+						}else{
+							//hold
+							hit.transform.SetParent(item.transform.parent);
+							//hit.transform.GetComponent<Rigidbody>().velocity = hit.transform.forward * 10f;
+						}
+						//hit.transform.SetParent(item.transform.parent);
 						
 
 					}

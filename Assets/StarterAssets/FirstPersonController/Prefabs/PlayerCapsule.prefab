@@ -148,7 +148,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6718957401739832203}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: HeldItem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -296,6 +296,7 @@ MonoBehaviour:
   look: {x: 0, y: 0}
   jump: 0
   sprint: 0
+  leftclick: 0
   analogMovement: 0
   cursorLocked: 1
   cursorInputForLook: 1
