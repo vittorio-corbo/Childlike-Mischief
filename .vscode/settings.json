@@ -56,5 +56,6 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Childlike Mischief.sln"
+    "dotnet.defaultSolution": "Childlike Mischief.sln",
+    "dotnet.preferCSharpExtension": true
 }

@@ -294,7 +294,12 @@ namespace StarterAssets
 						if (item.transform.parent == hit.transform.parent){
 							//drop
 							hit.transform.SetParent(null);
-							hit.transform.GetComponent<Rigidbody>().velocity = hit.transform.forward * 10f;
+							//throw data bad boi
+							if (!hit.transform.GetComponent<Rigidbody>().isKinematic){
+								//hit.transform.GetComponent<Rigidbody>().velocity = hit.transform.forward * 10f;
+								hit.transform.GetComponent<Rigidbody>().velocity = transform.forward * 10f;
+							}
+							
 							
 						}else{
 							//hold
