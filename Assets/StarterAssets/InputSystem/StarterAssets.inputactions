@@ -45,7 +45,7 @@
                     "name": "LeftClick",
                     "type": "PassThrough",
                     "id": "f92cc117-8bb0-42e8-9f32-928a35a52e1b",
-                    "expectedControlType": "",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false

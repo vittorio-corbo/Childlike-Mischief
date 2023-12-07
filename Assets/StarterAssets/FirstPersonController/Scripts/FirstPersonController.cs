@@ -278,6 +278,7 @@ namespace StarterAssets
 		[Space(10)]
 		[Header("GrabItem")]
 		[SerializeField] GameObject item;
+		private bool oldLeftclick;
 		private void Grab(){
 			//check Raycast?
 			//PUT ON GRABBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
@@ -285,9 +286,16 @@ namespace StarterAssets
 			var hit = DetectHit(CinemachineCameraTarget.transform.position, 10f, CinemachineCameraTarget.transform.forward);
 			//print(_input.leftclick);
 			// print(_input.sprint);
+
+			//I'm looking at the object
+			//print(_input.leftclick);
 			if (hit.transform != null){
-				if (_input.leftclick){
-					//print("TRYING TO GRAB");
+				// if (_input.leftclick){
+				// if (_input.leftclickPress){
+				//if ((_input.leftclickPress == false) || (_input.leftclick  == true)){
+				if ((oldLeftclick == false) && (_input.leftclick == true)){
+					//print(_input.leftclick);
+					print("TRYING TO GRAB");
 					if (hit.transform.gameObject.tag == "Grab"){
 						//print("FOUND GRABBING ITEEMMMMM");
 						//object1.transform.SetParent(object2 .transform.parent);
@@ -313,6 +321,7 @@ namespace StarterAssets
 					
 				}
 			}
+			oldLeftclick = _input.leftclick;
 
 		}
 

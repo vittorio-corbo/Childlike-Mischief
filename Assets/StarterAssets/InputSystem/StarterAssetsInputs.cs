@@ -1,4 +1,5 @@
-	using UnityEngine;
+using Unity.VisualScripting;
+using UnityEngine;
 #if ENABLE_INPUT_SYSTEM
 using UnityEngine.InputSystem;
 #endif
@@ -14,6 +15,7 @@ namespace StarterAssets
 		public bool sprint;
 		//public bool wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww;
 		public bool leftclick;
+		//public bool leftclickPress;
 
 		[Header("Movement Settings")]
 		public bool analogMovement;
@@ -77,7 +79,27 @@ namespace StarterAssets
 
 		public void LeftClickInput(bool newLeftClickState)
 		{
+			
+			// Debug.Log(leftclick);
+			//Debug.Log(newLeftClickState);
+			// leftclick = !newLeftClickState;
+
+			//check if switched from False -> True (ACTIVATE IF SO)
+
+			// leftclickPress = (leftclick == false) && (newLeftClickState == true);
+			//if ((leftclick == false) || (newLeftClickState == true)){
+				//Debug.Log("asdf");
+			//}
+			//leftclickPress = leftclick;
+
 			leftclick = newLeftClickState;
+			// Debug.Log("asdf");
+			//Debug.Log(leftclick);
+			//Debug.Log(leftclick);
+			//Debug.Log("");
+
+			//the problem here is that it only triggers when it has been pressed.
+			//Thus I can never know when its off
 		}
 		
 		private void OnApplicationFocus(bool hasFocus)
