@@ -32,12 +32,36 @@ public class ItemCollider : MonoBehaviour
 
 
     //private void OnCollisionEnter(Collision other) {
+    // private void OnTriggerEnter(Collider other){
+    private void OnTriggerStay(Collider other){
+        
+        // Debu
+        // Debug.Log(other.transform.gameObject.tag);
+        if (other.transform.gameObject.tag == "Grab"){
+            if (keyNeeded == other.transform.gameObject.GetComponent<Key>().type) {
+                if (other.transform.parent == null){
+                    print("ITS ON THE GROUND");
+                    wall.tag = "Grab";
+                    other.transform.gameObject.tag = "Untagged";
+                }
+            }
+        }
+
+    }
+
     private void OnTriggerEnter(Collider other){
         //print("sadf");
         if (other.transform.gameObject.tag == "Grab"){
             //it works
             if (keyNeeded == other.transform.gameObject.GetComponent<Key>().type) {
+                // if (other.transform.SetParent(null){
+                // if (other.transform.parent == null){
+                //     print("ITS ON THE GROUND");
+                // }
                 print("god shot on");    
+                //wall.tag = "Grab";
+
+                // other.transform.gameObject.tag = "Untagged";
 
             }
 
