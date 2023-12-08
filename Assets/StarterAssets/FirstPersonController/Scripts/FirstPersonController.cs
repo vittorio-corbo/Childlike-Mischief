@@ -289,13 +289,11 @@ namespace StarterAssets
 
 			//I'm looking at the object
 			//print(_input.leftclick);
-			if (hit.transform != null){
-				// if (_input.leftclick){
-				// if (_input.leftclickPress){
-				//if ((_input.leftclickPress == false) || (_input.leftclick  == true)){
-				if ((oldLeftclick == false) && (_input.leftclick == true)){
-					//print(_input.leftclick);
-					print("TRYING TO GRAB");
+
+			if ((oldLeftclick == false) && (_input.leftclick == true)){
+				//print(_input.leftclick);
+				print("TRYING TO GRAB");
+				if (hit.transform != null){
 					if (hit.transform.gameObject.tag == "Grab"){
 						//print("FOUND GRABBING ITEEMMMMM");
 						//object1.transform.SetParent(object2 .transform.parent);
@@ -314,13 +312,20 @@ namespace StarterAssets
 							hit.transform.SetParent(item.transform.parent);
 							//hit.transform.GetComponent<Rigidbody>().velocity = hit.transform.forward * 10f;
 						}
-						//hit.transform.SetParent(item.transform.parent);
-						
+					//hit.transform.SetParent(item.transform.parent);
 
 					}
 					
 				}
 			}
+			
+				// if (_input.leftclick){
+				// if (_input.leftclickPress){
+				//if ((_input.leftclickPress == false) || (_input.leftclick  == true)){
+				
+			
+
+			//hardcode stuff
 			oldLeftclick = _input.leftclick;
 
 		}
