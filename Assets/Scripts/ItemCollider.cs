@@ -41,6 +41,9 @@ public class ItemCollider : MonoBehaviour
 
             }
 
+            //Create collision with player thing that way i can check that kind of collision
+
+
             print("colliosion");    
             pizza += 1;
             print(pizza);
@@ -49,6 +52,16 @@ public class ItemCollider : MonoBehaviour
                 Destroy(wall);
             }
         }
+
+        if (other.transform.gameObject.tag == "Player"){
+            if (keyNeeded == KeyType.Player) {
+                print("kill me wooooooooo");    
+                //create sepreate function that gets called for collision cause there are double or also i dont fucking care
+
+            }
+        }
+
+
 
     } 
 }

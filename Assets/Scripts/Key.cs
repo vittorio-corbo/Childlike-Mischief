@@ -8,17 +8,18 @@ public class Key : MonoBehaviour
     public enum KeyType
     {
         Not,
-        Battery,
-        Motor,
-        Antenna,
-        Gear,
-        Rock,
-        SidePannel,
-        Liver,
-        BellyBottom,
-        Apendix,
-        PowerCore,
-        Fuse,
+        Crab,
+        Towel,
+        Shovel,
+        Energy,
+        Coke,
+        Lax,
+        Coin,
+        Glass,
+        Player,
+        // Apendix,
+        // PowerCore,
+        // Fuse,
     }
 
     public KeyType type;
