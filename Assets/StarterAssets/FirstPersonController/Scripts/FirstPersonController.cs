@@ -271,7 +271,7 @@ namespace StarterAssets
 				endPos = hit.point;
 			}
 			// 2 is the duration the line is drawn, afterwards its deleted
-			Debug.DrawLine(startPos, endPos, Color.green, 2);
+			//Debug.DrawLine(startPos, endPos, Color.green, 2);
 			return hit;
 		}
 
