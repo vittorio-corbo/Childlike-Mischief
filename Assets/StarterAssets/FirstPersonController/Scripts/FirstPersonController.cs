@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Unity.VisualScripting;
+using UnityEngine;
 #if ENABLE_INPUT_SYSTEM
 using UnityEngine.InputSystem;
 #endif
@@ -270,7 +271,7 @@ namespace StarterAssets
 				endPos = hit.point;
 			}
 			// 2 is the duration the line is drawn, afterwards its deleted
-			//Debug.DrawLine(startPos, endPos, Color.green, 2);
+			Debug.DrawLine(startPos, endPos, Color.green, 2);
 			return hit;
 		}
 
@@ -279,6 +280,8 @@ namespace StarterAssets
 		[Header("GrabItem")]
 		[SerializeField] GameObject item;
 		private bool oldLeftclick;
+
+
 		private void Grab(){
 			//check Raycast?
 			//PUT ON GRABBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
@@ -289,37 +292,92 @@ namespace StarterAssets
 
 			//I'm looking at the object
 			//print(_input.leftclick);
-
+			//tempItem.transform.position = hit.point	;
 			if ((oldLeftclick == false) && (_input.leftclick == true)){
+				//return
+
 				//print(_input.leftclick);
 				print("TRYING TO GRAB");
-
-				//if there is as raycast
+				// print(hit.GetPoint(hit.direction));
+				// print(hit.GetPoint(hit.direction));
+				print(hit.point);
+				//hit.
+				
+				print(hit.transform.position);
 				if (hit.transform != null){
-					if (hit.transform.gameObject.tag == "Grab"){
-						//print("FOUND GRABBING ITEEMMMMM");
-						//object1.transform.SetParent(object2 .transform.parent);
-						if (item.transform.parent == hit.transform.parent){
-							//drop
-							hit.transform.SetParent(null);
-							//throw data bad boi
-							if (!hit.transform.GetComponent<Rigidbody>().isKinematic){
-								//hit.transform.GetComponent<Rigidbody>().velocity = hit.transform.forward * 10f;
-								hit.transform.GetComponent<Rigidbody>().velocity = transform.forward * 10f;
-							}
-							
-							
-						}else{
-							//hold
-							hit.transform.SetParent(item.transform.parent);
-							hit.transform.position = item.transform.position;
+					
+					//I AM HOLDING AN ITEM (THUS YEET IT)
+					// if (item.transform.parent == hit.transform.parent){
+					if (item.transform.childCount != 0){
+						print("trying to drop");
+						
+						//item.transform.SetParent(null);
+						//print(item.transform.GetChild(0).transform.position);
+
+						// item.transform.GetChild(0).transform.position = hit.transform.position;
+						item.transform.GetChild(0).transform.position = hit.point+ Vector3.up*0.2f;
+						//
+						item.transform.GetChild(0).GameObject().layer = 0;
+
+						item.transform.GetChild(0).SetParent(null);
+						
+						
+
+						//throw data bad boi
+						if (!hit.transform.GetComponent<Rigidbody>().isKinematic){
 							//hit.transform.GetComponent<Rigidbody>().velocity = hit.transform.forward * 10f;
+							hit.transform.GetComponent<Rigidbody>().velocity = transform.forward * 10f;
 						}
-					//hit.transform.SetParent(item.transform.parent);
+						
+						
+					}else{ //HANDS EMPTY. TIME TO GRAB!!!!!!!!!!!!
+						print("hands empty i swaer");
+						if (hit.transform.gameObject.tag == "Grab"){
+								//hold
+								//hit.transform.SetParent(item.transform.parent);
+								hit.transform.SetParent(item.transform);
+								hit.transform.position = item.transform.position;
+								hit.transform.GameObject().layer = 2;
+
+
+						}
 
 					}
-					
+
+
 				}
+
+
+
+
+				//if there is as raycast
+				// if (hit.transform != null){
+				// 	if (hit.transform.gameObject.tag == "Grab"){
+				// 		//print("FOUND GRABBING ITEEMMMMM");
+				// 		//object1.transform.SetParent(object2 .transform.parent);
+
+				// 		//i am holding item (this is messed up)
+				// 		if (item.transform.parent == hit.transform.parent){
+				// 			//drop
+				// 			hit.transform.SetParent(null);
+				// 			//throw data bad boi
+				// 			if (!hit.transform.GetComponent<Rigidbody>().isKinematic){
+				// 				//hit.transform.GetComponent<Rigidbody>().velocity = hit.transform.forward * 10f;
+				// 				hit.transform.GetComponent<Rigidbody>().velocity = transform.forward * 10f;
+				// 			}
+							
+							
+				// 		}else{
+				// 			//hold
+				// 			hit.transform.SetParent(item.transform.parent);
+				// 			hit.transform.position = item.transform.position;
+				// 			//hit.transform.GetComponent<Rigidbody>().velocity = hit.transform.forward * 10f;
+				// 		}
+				// 	//hit.transform.SetParent(item.transform.parent);
+
+				// 	}
+					
+				// }
 			}
 			
 				// if (_input.leftclick){
