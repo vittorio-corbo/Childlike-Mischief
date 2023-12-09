@@ -1,4 +1,5 @@
-﻿using Unity.VisualScripting;
+﻿using System.ComponentModel.Design;
+using Unity.VisualScripting;
 using UnityEngine;
 #if ENABLE_INPUT_SYSTEM
 using UnityEngine.InputSystem;
@@ -305,21 +306,48 @@ namespace StarterAssets
 				
 				print(hit.transform.position);
 				if (hit.transform != null){
+					//code in functionality for: (both should contain some if statements in here)
+					// coins
+					// bottles
+
 					
 					//I AM HOLDING AN ITEM (THUS YEET IT)
 					// if (item.transform.parent == hit.transform.parent){
 					if (item.transform.childCount != 0){
+						//DROP ITEM
 						print("trying to drop");
+						//if tag bottle
+						// if (hit.transform.gameObject.tag == "Grab"){
+						// 	//if(Key.KeyType.Coke == hit.transform.gameObject.GetComponent<Key>().type){
+						// 	if(Key.KeyType.Coke == hit.transform.gameObject.GetComponent<Key>().type){
+
+						// 	}
+						// }
+
+
+						//DO GRAB MORE ITEMS/N STUFF HERE
 						
 						//item.transform.SetParent(null);
 						//print(item.transform.GetChild(0).transform.position);
 
 						// item.transform.GetChild(0).transform.position = hit.transform.position;
-						item.transform.GetChild(0).transform.position = hit.point+ Vector3.up*0.2f;
+						item.transform.GetChild(0).transform.position = hit.point + Vector3.up*0.2f;
 						//
 						item.transform.GetChild(0).GameObject().layer = 0;
 
 						item.transform.GetChild(0).SetParent(null);
+
+
+						//DO SWITCHEROO?????
+						//GRAB ITEM
+						print("hands empty i swaer");
+						if (hit.transform.gameObject.tag == "Grab"){
+							//hold
+							//hit.transform.SetParent(item.transform.parent);
+							hit.transform.SetParent(item.transform);
+							hit.transform.position = item.transform.position;
+							hit.transform.GameObject().layer = 2;
+						}
 						
 						
 
@@ -331,15 +359,14 @@ namespace StarterAssets
 						
 						
 					}else{ //HANDS EMPTY. TIME TO GRAB!!!!!!!!!!!!
+						//GRAB ITEM
 						print("hands empty i swaer");
 						if (hit.transform.gameObject.tag == "Grab"){
-								//hold
-								//hit.transform.SetParent(item.transform.parent);
-								hit.transform.SetParent(item.transform);
-								hit.transform.position = item.transform.position;
-								hit.transform.GameObject().layer = 2;
-
-
+							//hold
+							//hit.transform.SetParent(item.transform.parent);
+							hit.transform.SetParent(item.transform);
+							hit.transform.position = item.transform.position;
+							hit.transform.GameObject().layer = 2;
 						}
 
 					}

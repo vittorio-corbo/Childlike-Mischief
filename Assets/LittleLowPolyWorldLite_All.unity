@@ -28915,6 +28915,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 223845862692909924, guid: 0ae4b8594c82b1346a5b58a32ac3ac21, type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 223845862692909924, guid: 0ae4b8594c82b1346a5b58a32ac3ac21, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6504583885149895125, guid: 0ae4b8594c82b1346a5b58a32ac3ac21, type: 3}
       propertyPath: m_Name
       value: SandCastle
@@ -28966,6 +28974,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 9107101232343030787, guid: 0ae4b8594c82b1346a5b58a32ac3ac21, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8894702077609733298}
+    - targetCorrespondingSourceObject: {fileID: 9107101232343030787, guid: 0ae4b8594c82b1346a5b58a32ac3ac21, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8894702077609733300}
   m_SourcePrefab: {fileID: 100100000, guid: 0ae4b8594c82b1346a5b58a32ac3ac21, type: 3}
 --- !u!1 &1197235847861685645 stripped
 GameObject:
@@ -29100,6 +29111,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   victim: {fileID: 1250868331}
   keyNeeded: 9
+--- !u!65 &8894702077609733300
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1197235847861685645}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Size: {x: 2.29444, y: 1.248181, z: 2.385794}
+  m_Center: {x: 0, y: 0.5727095, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
