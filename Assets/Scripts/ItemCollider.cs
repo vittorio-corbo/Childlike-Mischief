@@ -18,7 +18,7 @@ abstract public class ItemCollider : MonoBehaviour
         
     // }
 
-    [SerializeField] protected GameObject sprunged;
+    [SerializeField] protected GameObject victim;
     private int pizza;
 
     //public enum Key typeLock;

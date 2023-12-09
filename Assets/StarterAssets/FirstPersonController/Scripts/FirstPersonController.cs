@@ -293,6 +293,8 @@ namespace StarterAssets
 			if ((oldLeftclick == false) && (_input.leftclick == true)){
 				//print(_input.leftclick);
 				print("TRYING TO GRAB");
+
+				//if there is as raycast
 				if (hit.transform != null){
 					if (hit.transform.gameObject.tag == "Grab"){
 						//print("FOUND GRABBING ITEEMMMMM");
@@ -310,6 +312,7 @@ namespace StarterAssets
 						}else{
 							//hold
 							hit.transform.SetParent(item.transform.parent);
+							hit.transform.position = item.transform.position;
 							//hit.transform.GetComponent<Rigidbody>().velocity = hit.transform.forward * 10f;
 						}
 					//hit.transform.SetParent(item.transform.parent);

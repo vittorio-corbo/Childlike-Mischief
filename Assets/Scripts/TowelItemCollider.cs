@@ -8,7 +8,7 @@ public class TowelItemCollider : ItemCollider
 {
     //deactivate the towel
     protected override void Sprung(GameObject collision){
-        sprunged.tag = "Grab";
+        victim.tag = "Grab";
     }
 
 
