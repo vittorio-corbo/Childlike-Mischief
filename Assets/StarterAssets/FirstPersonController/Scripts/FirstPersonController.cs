@@ -340,7 +340,7 @@ namespace StarterAssets
 
 						//DO SWITCHEROO?????
 						//GRAB ITEM
-						print("hands empty i swaer");
+						// print("hands empty i swaer");
 						if (hit.transform.gameObject.tag == "Grab"){
 							//hold
 							//hit.transform.SetParent(item.transform.parent);
@@ -358,6 +358,8 @@ namespace StarterAssets
 						}
 						
 						
+					// }//HANDS EMPTY. TIME TO GRAB!!!!!!!!!!!!
+					// if (item.transform.childCount == 0){
 					}else{ //HANDS EMPTY. TIME TO GRAB!!!!!!!!!!!!
 						//GRAB ITEM
 						print("hands empty i swaer");
@@ -367,6 +369,7 @@ namespace StarterAssets
 							hit.transform.SetParent(item.transform);
 							hit.transform.position = item.transform.position;
 							hit.transform.GameObject().layer = 2;
+							//enable raycast!
 						}
 
 					}
