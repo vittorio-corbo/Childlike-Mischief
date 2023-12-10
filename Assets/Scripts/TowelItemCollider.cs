@@ -8,11 +8,6 @@ public class TowelItemCollider : ItemCollider
 {
     //deactivate the towel
     protected override void Sprung(GameObject collision){
-        print("i have been sprung");
-        print("i have been sprung");
-        print("i have been sprung");
-        print("i have been sprung");
-        print("i have been sprung");
         victim.tag = "Grab";
     }
 

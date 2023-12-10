@@ -369,7 +369,8 @@ namespace StarterAssets
 						//}
 
 						//DROP ITEM
-						item.transform.GetChild(0).transform.position = hit.point + Vector3.up*0.2f;
+						item.transform.GetChild(0).transform.position = hit.point;
+						// item.transform.GetChild(0).transform.position = hit.point + Vector3.up*0.2f;
 						item.transform.GetChild(0).GameObject().layer = 0;
 						item.transform.GetChild(0).SetParent(null);
 
