@@ -324,6 +324,11 @@ namespace StarterAssets
 						// 	}
 						// }
 
+						//FOR COIN DO SOMETHING WACK
+
+
+						//if its coin, and I am holding coin, merge
+
 
 						//DO GRAB MORE ITEMS/N STUFF HERE
 						
@@ -331,14 +336,44 @@ namespace StarterAssets
 						//print(item.transform.GetChild(0).transform.position);
 
 						// item.transform.GetChild(0).transform.position = hit.transform.position;
-						item.transform.GetChild(0).transform.position = hit.point + Vector3.up*0.2f;
-						//
-						item.transform.GetChild(0).GameObject().layer = 0;
+						// if(hit.transform.gameObject.GetComponent("GrabCoin.cs") != null){
 
+						//OTHER ITEM IS COIN
+						if(hit.transform.gameObject.GetComponent<GrabCoin>() != null){
+							print("it have it");
+							if (item.transform.GetChild(0).transform.gameObject.GetComponent<GrabCoin>() != null){
+								print("i am holding coin too");
+
+
+								//check if i added a coin (if i have 4 this should not activate)
+								if (item.transform.GetChild(0).transform.gameObject.GetComponent<GrabCoin>().AddCoin()){
+									//yeet the other coin
+									print("should bee yeeting coin");
+									Destroy(hit.transform.gameObject);
+									return;
+								}
+							}
+
+
+							// if (hit.transform.gameObject.GetComponent<GrabCoin>().AddCoin()){
+							// 	//yeet the other coin
+							// 	print("should bee yeeting coin");
+							// 	Destroy(hit.transform.gameObject);
+							// 	return;
+							// }
+							
+
+						}//else{
+						//	print("say it like you mean it");
+						//}
+
+						//DROP ITEM
+						item.transform.GetChild(0).transform.position = hit.point + Vector3.up*0.2f;
+						item.transform.GetChild(0).GameObject().layer = 0;
 						item.transform.GetChild(0).SetParent(null);
 
 
-						//DO SWITCHEROO?????
+						//DO SWITCHEROO (SWTICHING BOTTLES)
 						//GRAB ITEM
 						// print("hands empty i swaer");
 						if (hit.transform.gameObject.tag == "Grab"){
