@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using static Key;
 
-public class TowelItemCollider : ItemCollider
+public class StoreItemCollider : ItemCollider
 {
     //deactivate the towel
     protected override void Sprung(GameObject collision){
@@ -13,7 +13,15 @@ public class TowelItemCollider : ItemCollider
         print("i have been sprung");
         print("i have been sprung");
         print("i have been sprung");
-        victim.tag = "Grab";
+        if (collision.GetComponent<GrabCoin>().GetCoinNum() == 3){
+            //GetCoinNum
+            print(collision.GetComponent<GrabCoin>().GetCoinNum());
+            victim.tag = "Grab";
+        }else{
+            sprung = false;
+            print("not enough stuff");
+        }
+        
     }
 
 

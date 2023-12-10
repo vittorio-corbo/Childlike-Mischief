@@ -346,7 +346,8 @@ namespace StarterAssets
 
 
 								//check if i added a coin (if i have 4 this should not activate)
-								if (item.transform.GetChild(0).transform.gameObject.GetComponent<GrabCoin>().AddCoin()){
+								int coinNum = hit.transform.GetComponent<GrabCoin>().GetCoinNum();
+								if (item.transform.GetChild(0).transform.gameObject.GetComponent<GrabCoin>().AddCoin(coinNum)){
 									//yeet the other coin
 									print("should bee yeeting coin");
 									Destroy(hit.transform.gameObject);

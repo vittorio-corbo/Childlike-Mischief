@@ -119,6 +119,7 @@ GameObject:
   - component: {fileID: 8160086475848708237}
   - component: {fileID: 3424595350297268550}
   - component: {fileID: 3629991337602197278}
+  - component: {fileID: 4540002178522014823}
   m_Layer: 0
   m_Name: Coin
   m_TagString: Grab
@@ -192,6 +193,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coin2: {fileID: 6039072719641859484}
   coin3: {fileID: 151623370578271907}
+--- !u!54 &4540002178522014823
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2878642287600487068}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &6039072719641859484
 GameObject:
   m_ObjectHideFlags: 0

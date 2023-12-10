@@ -37,11 +37,14 @@ abstract public class ItemCollider : MonoBehaviour
     private void OnTriggerStay(Collider other){
 
         //Grabbable object collision
+        // print("i have something?");
         if (other.transform.gameObject.tag == "Grab"){
+            print("did this happen");
             if (keyNeeded == other.transform.gameObject.GetComponent<Key>().type) {
                 if (other.transform.parent == null){
                     //print("its on the ground");
                     if (sprung == false){
+                        //print("broooooooooooooooooo");
                         sprung = true;
                         Sprung(other.transform.gameObject);
                     }
