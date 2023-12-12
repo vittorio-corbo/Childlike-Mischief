@@ -9,6 +9,8 @@ public class TowelItemCollider : ItemCollider
     //deactivate the towel
     protected override void Sprung(GameObject collision){
         victim.tag = "Grab";
+
+        //maybe make crab ungrappable idk
     }
 
 

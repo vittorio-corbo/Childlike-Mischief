@@ -364,6 +364,26 @@ namespace StarterAssets
 						//	print("say it like you mean it");
 						//}
 
+						//OTHER ITEM IS COKE OR LAXATIVES
+						if (hit.transform.gameObject.tag == "Golden Idol"){
+							Key.KeyType heldItemKeyType = item.transform.GetChild(0).transform.gameObject.GetComponent<Key>().type;
+							// if (item.transform.GetChild(0).transform.gameObject.GetComponent<Key>().type == Key.KeyType.Coke)
+							if (heldItemKeyType == Key.KeyType.Coke || heldItemKeyType == Key.KeyType.Energy || heldItemKeyType == Key.KeyType.Lax){
+								//do switch (just requires the grppable tag lol)
+								hit.transform.gameObject.tag = "Grab";
+
+								//make dropped item ungrabbable
+								item.transform.GetChild(0).GameObject().transform.tag = "Untagged";
+
+								//print("qwerty is missed");	
+							}
+
+
+							//Debug statement
+								//print("ur golden bro");
+						}
+						
+
 						//DROP ITEM
 						item.transform.GetChild(0).transform.position = hit.point;
 						// item.transform.GetChild(0).transform.position = hit.point + Vector3.up*0.2f;
@@ -374,13 +394,13 @@ namespace StarterAssets
 						//DO SWITCHEROO (SWTICHING BOTTLES)
 						//GRAB ITEM
 						// print("hands empty i swaer");
-						if (hit.transform.gameObject.tag == "Grab"){
-							//hold
-							//hit.transform.SetParent(item.transform.parent);
-							hit.transform.SetParent(item.transform);
-							hit.transform.position = item.transform.position;
-							hit.transform.GameObject().layer = 2;
-						}
+						// if (hit.transform.gameObject.tag == "Grab"){
+						// 	//hold
+						// 	//hit.transform.SetParent(item.transform.parent);
+						// 	hit.transform.SetParent(item.transform);
+						// 	hit.transform.position = item.transform.position;
+						// 	hit.transform.GameObject().layer = 2;
+						// }
 						
 						
 
@@ -391,9 +411,9 @@ namespace StarterAssets
 						}
 						
 						
-					// }//HANDS EMPTY. TIME TO GRAB!!!!!!!!!!!!
-					// if (item.transform.childCount == 0){
-					}else{ //HANDS EMPTY. TIME TO GRAB!!!!!!!!!!!!
+					}//HANDS EMPTY. TIME TO GRAB!!!!!!!!!!!!
+					if (item.transform.childCount == 0){
+					// }else{ //HANDS EMPTY. TIME TO GRAB!!!!!!!!!!!!
 						//GRAB ITEM
 						print("hands empty i swaer");
 						if (hit.transform.gameObject.tag == "Grab"){
