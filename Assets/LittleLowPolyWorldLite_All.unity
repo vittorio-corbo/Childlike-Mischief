@@ -13818,10 +13818,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: GullStanding (2)
       objectReference: {fileID: 0}
-    - target: {fileID: 6584063707606039140, guid: e2d834f1f2556aa4ea28f2e4ee5d8eb0, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

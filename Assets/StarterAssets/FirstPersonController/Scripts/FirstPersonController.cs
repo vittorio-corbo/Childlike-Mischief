@@ -354,16 +354,12 @@ namespace StarterAssets
 									return;
 								}
 							}
-
-
 							// if (hit.transform.gameObject.GetComponent<GrabCoin>().AddCoin()){
 							// 	//yeet the other coin
 							// 	print("should bee yeeting coin");
 							// 	Destroy(hit.transform.gameObject);
 							// 	return;
-							// }
-							
-
+							// }		
 						}//else{
 						//	print("say it like you mean it");
 						//}
