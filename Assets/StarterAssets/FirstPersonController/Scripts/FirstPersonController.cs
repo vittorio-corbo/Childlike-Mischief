@@ -298,17 +298,26 @@ namespace StarterAssets
 				//return
 
 				//print(_input.leftclick);
-				print("TRYING TO GRAB");
+				//print("TRYING TO GRAB");
 				// print(hit.GetPoint(hit.direction));
 				// print(hit.GetPoint(hit.direction));
-				print(hit.point);
+				//print(hit.point);
 				//hit.
 				
-				print(hit.transform.position);
+				//print(hit.transform.position);
+
+				//I hit something with the raycast
 				if (hit.transform != null){
 					//code in functionality for: (both should contain some if statements in here)
 					// coins
 					// bottles
+
+					//hit collider transport
+					//if (hit.transform.tag == "Scotty"){
+					//	print("beam me up");
+		
+					//	return;
+					//}
 
 					
 					//I AM HOLDING AN ITEM (THUS YEET IT)
