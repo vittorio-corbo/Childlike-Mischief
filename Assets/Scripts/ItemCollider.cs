@@ -19,7 +19,7 @@ abstract public class ItemCollider : MonoBehaviour
     // }
 
     [SerializeField] protected GameObject victim;
-    private int pizza;
+    //private int pizza;
 
     //public enum Key typeLock;
     //public Key type;
@@ -38,8 +38,10 @@ abstract public class ItemCollider : MonoBehaviour
 
         //Grabbable object collision
         // print("i have something?");
-        if (other.transform.gameObject.tag == "Grab"){
-            print("did this happen");
+        //if (other.transform.gameObject.tag == "Grab"){
+        if (other.transform.gameObject.tag == "Grab" || other.transform.gameObject.tag == "Sand Bag"){
+            
+            //print("did this happen");
             if (keyNeeded == other.transform.gameObject.GetComponent<Key>().type) {
                 if (other.transform.parent == null){
                     //print("its on the ground");

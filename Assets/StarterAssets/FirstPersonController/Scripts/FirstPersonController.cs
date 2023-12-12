@@ -373,7 +373,19 @@ namespace StarterAssets
 								hit.transform.gameObject.tag = "Grab";
 
 								//make dropped item ungrabbable
-								item.transform.GetChild(0).GameObject().transform.tag = "Untagged";
+								//item.transform.GetChild(0).GameObject().transform.tag = "Untagged";
+
+								//item.transform.GetChild(0).GameObject().transform.tag = "Sand Bag";
+								//item.transform.GetChild(0).tag = "Sand Bag";
+								item.transform.GetChild(0).gameObject.tag = "Sand Bag";
+								// print(item.transform.GetChild(0).tag);
+								// print(item.transform.GetChild(0).tag);
+								// print(item.transform.GetChild(0).tag);
+								// print(item.transform.GetChild(0).tag);
+								// print(item.transform.GetChild(0).tag);
+								// print(item.transform.GetChild(0).GameObject().transform.tag);
+								// print(item.transform.GetChild(0).GameObject().transform.tag);
+								// print(item.transform.GetChild(0).GameObject().transform.tag);
 
 								//print("qwerty is missed");	
 							}
