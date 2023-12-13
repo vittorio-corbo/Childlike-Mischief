@@ -17,6 +17,7 @@ public class Key : MonoBehaviour
         Coin,
         Glass,
         Player,
+        Aloe,
         // Apendix,
         // PowerCore,
         // Fuse,

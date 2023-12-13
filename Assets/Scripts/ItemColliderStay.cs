@@ -26,7 +26,7 @@ public class ItemColliderStay : ItemCollider
     //private void OnCollisionEnter(Collision other) {
     // private void OnTriggerEnter(Collider other){
     protected override void OnTriggerStay(Collider other){
-        print(other);
+        //print(other);
 
         //Grabbable object collision
         // print("i have something?");
@@ -62,6 +62,10 @@ public class ItemColliderStay : ItemCollider
         victim.tag = "Grab";
 
         //maybe make crab ungrappable idk
+    }
+
+    public bool getSprung(){
+        return sprung;
     }
 
 }
