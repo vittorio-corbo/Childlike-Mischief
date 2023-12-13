@@ -1,4 +1,5 @@
 ﻿using Borodar.FarlandSkies.Core.Helpers;
+using StarterAssets;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -18,6 +19,8 @@ namespace Borodar.FarlandSkies.LowPoly
 
         private SkyboxDayNightCycle _dayNightCycle;
 
+        [SerializeField] GameObject player;
+
         //---------------------------------------------------------------------
         // Messages
         //---------------------------------------------------------------------
@@ -28,6 +31,8 @@ namespace Borodar.FarlandSkies.LowPoly
             UpdateTimeOfDay();
 
             //disable player controller and make him look at east
+            player.GetComponent<FirstPersonController>().Look(false);
+            player.GetComponent<FirstPersonController>().Paralize(false);
         }
 
         protected void Update()
@@ -51,9 +56,14 @@ namespace Borodar.FarlandSkies.LowPoly
             //say: NEW DAY
             //get day and night values from other script
             //if  (delta_day <= 25 && 25 <= CycleProgress)
-            if  (delta_day <= _dayNightCycle.GetSunrise() && _dayNightCycle.GetSunrise() <= CycleProgress)
+            
+            //if  (delta_day <= _dayNightCycle.GetSunrise() && _dayNightCycle.GetSunrise() <= CycleProgress)
+            //if  (35 <= _dayNightCycle.GetSunrise() && _dayNightCycle.GetSunrise() <= 85)
+            //if  (35 <= _dayNightCycle.GetSunrise() && _dayNightCycle.GetSunrise() <= CycleProgress)
+            if  (delta_day <= 35 && 35 <= CycleProgress)
             {
                 Debug.Log("new day");
+                player.GetComponent<FirstPersonController>().Paralize(true);
 
                 //enable player controller
             }

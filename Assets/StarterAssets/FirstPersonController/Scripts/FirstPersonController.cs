@@ -124,7 +124,11 @@ namespace StarterAssets
 
 		private void LateUpdate()
 		{
-			CameraRotation();
+			CharacterController cc = gameObject.GetComponent<CharacterController>();
+			 //= paralize
+			if (cc.enabled){
+				CameraRotation();
+			}
 		}
 
 		private void GroundedCheck()
@@ -281,6 +285,29 @@ namespace StarterAssets
 		[Header("GrabItem")]
 		[SerializeField] GameObject item;
 		private bool oldLeftclick;
+
+		[Space(10)]
+		[Header("Blinkers")]
+
+		[SerializeField] GameObject bars;
+		
+
+		//[SerializeField] private GameObject cinematicBarsContainerGO;
+
+		public void Look(bool west){
+			gameObject.transform.rotation = new Quaternion(0,-1,0,0);	
+		}
+
+		public void Paralize(bool paralize){
+			CharacterController cc = gameObject.GetComponent<CharacterController>();
+			cc.enabled = paralize;
+			bars.SetActive(!paralize);
+			
+			// player.transform.position = victim.transform.position;
+			// // player.transform.position += Vector3.up*10f;
+			// cc.enabled = true;
+
+		}
 
 
 		private void Grab(){
