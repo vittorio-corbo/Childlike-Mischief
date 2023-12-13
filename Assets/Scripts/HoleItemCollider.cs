@@ -14,8 +14,16 @@ public class HoleItemCollider : ItemCollider
     [SerializeField] public GameObject sandB;
     [SerializeField] public GameObject sandC;
 
+    [SerializeField] public GameObject guyA;
+    [SerializeField] public GameObject guyB;
+
+    
+
 
     protected override void OnTriggerStay(Collider other){
+        //CHECK IF ITEM ON FLOOR
+
+
         if (other.transform.gameObject.tag == "Grab"){
             // if (other.transform.gameObject.GetComponent<Key>().type == Key.KeyType.Shovel){
             if (other.transform.gameObject.GetComponent<Key>().type == keyNeeded){ //shovel
@@ -29,6 +37,9 @@ public class HoleItemCollider : ItemCollider
                 //deactivate 
                 //destroy sand
                 Destroy(sandA);
+                Destroy(guyA);
+                guyB.SetActive(true);
+
                 
             }
 
@@ -44,6 +55,7 @@ public class HoleItemCollider : ItemCollider
                     //destroy sand
                     Destroy(sandB);
                     Destroy(sandC);
+                    Destroy(guyB);
 
                 } else if (other.transform.gameObject.GetComponent<Key>().type == Key.KeyType.Coke){
                     //go to state 2
@@ -55,12 +67,14 @@ public class HoleItemCollider : ItemCollider
 
                     //destroy sand
                     Destroy(sandB);
+                    Destroy(guyB);
 
                 } else if (other.transform.gameObject.GetComponent<Key>().type == Key.KeyType.Lax){
                     //do nothing (state = 1)
 
 
                     Destroy(other);
+                    Destroy(guyB);
                 }
 
             }

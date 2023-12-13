@@ -6,6 +6,7 @@ using static Key;
 
 public class StoreItemCollider : ItemCollider
 {
+    [SerializeField] GameObject storeclerk;
     //deactivate the towel
     protected override void Sprung(GameObject collision){
         print("i have been sprung");
@@ -17,6 +18,8 @@ public class StoreItemCollider : ItemCollider
             //GetCoinNum
             print(collision.GetComponent<GrabCoin>().GetCoinNum());
             victim.tag = "Grab";
+            Destroy(collision);
+            Destroy(storeclerk);
         }else{
             sprung = false;
             print("not enough stuff");
