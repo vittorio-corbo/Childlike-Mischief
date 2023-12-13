@@ -60,7 +60,7 @@ namespace Borodar.FarlandSkies.LowPoly
             //if  (delta_day <= _dayNightCycle.GetSunrise() && _dayNightCycle.GetSunrise() <= CycleProgress)
             //if  (35 <= _dayNightCycle.GetSunrise() && _dayNightCycle.GetSunrise() <= 85)
             //if  (35 <= _dayNightCycle.GetSunrise() && _dayNightCycle.GetSunrise() <= CycleProgress)
-            if  (delta_day <= 35 && 35 <= CycleProgress)
+            if  (delta_day <= 33 && 33 <= CycleProgress)
             {
                 Debug.Log("new day");
                 player.GetComponent<FirstPersonController>().Paralize(true);
