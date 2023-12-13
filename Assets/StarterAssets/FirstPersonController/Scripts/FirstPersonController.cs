@@ -407,9 +407,12 @@ namespace StarterAssets
 
 						//DROP ITEM
 						item.transform.GetChild(0).transform.position = hit.point;
+						if (item.transform.GetChild(0).transform.gameObject.GetComponent<Key>().type == Key.KeyType.Aloe) { item.transform.GetChild(0).transform.position = hit.point + Vector3.up*0.2f;}//correct for dumb hitboxes
 						// item.transform.GetChild(0).transform.position = hit.point + Vector3.up*0.2f;
 						item.transform.GetChild(0).GameObject().layer = 0;
 						item.transform.GetChild(0).SetParent(null);
+
+						
 
 
 						//DO SWITCHEROO (SWTICHING BOTTLES)

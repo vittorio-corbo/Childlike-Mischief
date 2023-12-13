@@ -30,10 +30,20 @@ public class MasterLock : MonoBehaviour
 
 
         //WHAT I WANT TO USE
-        // print(glassesLock.GetComponent<ItemColliderStay>().getSprung());
-        // print(holeLock.GetComponent<HoleItemCollider>().getState() == 3);
-        // print(towelLock.GetComponent<ItemColliderStay>().getSprung());
-        // print(aloeLock.GetComponent<ItemColliderStay>().getSprung());
+        bool atrue = glassesLock.GetComponent<ItemColliderStay>().getSprung();
+        bool btrue = holeLock.GetComponent<HoleItemCollider>().getState() == 3;
+        bool ctrue = towelLock.GetComponent<ItemColliderStay>().getSprung();
+        bool dtrue = aloeLock.GetComponent<ItemColliderStay>().getSprung();
+        if (atrue && btrue && ctrue && dtrue){
+            print("hooooooly shittt");
+        }
+        print("start");
+        print(glassesLock.GetComponent<ItemColliderStay>().getSprung());
+        print(holeLock.GetComponent<HoleItemCollider>().getState() == 3);
+        print(towelLock.GetComponent<ItemColliderStay>().getSprung());
+        print(aloeLock.GetComponent<ItemColliderStay>().getSprung());
+        print("end");
+        print("");
 
     }
     // [SerializeField] private KeyType keyNeeded;
