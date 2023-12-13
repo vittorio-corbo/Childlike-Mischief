@@ -25,7 +25,7 @@ abstract public class ItemCollider : MonoBehaviour
     //public Key type;
 
     //[SerializeField] private List<KeyType> fixingTypes;
-    [SerializeField] private KeyType keyNeeded;
+    [SerializeField] protected KeyType keyNeeded;
 
     //public List<FixableObjectCheck> fixableObjectChecks = new List<FixableObjectCheck>();
 
@@ -34,7 +34,8 @@ abstract public class ItemCollider : MonoBehaviour
 
     //private void OnCollisionEnter(Collision other) {
     // private void OnTriggerEnter(Collider other){
-    private void OnTriggerStay(Collider other){
+    // private void OnTriggerStay(Collider other){
+    protected virtual void OnTriggerStay(Collider other){
 
         //Grabbable object collision
         // print("i have something?");
