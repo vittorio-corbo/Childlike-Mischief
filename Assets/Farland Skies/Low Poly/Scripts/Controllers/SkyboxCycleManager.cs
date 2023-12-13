@@ -26,6 +26,8 @@ namespace Borodar.FarlandSkies.LowPoly
         {
             _dayNightCycle = SkyboxDayNightCycle.Instance;
             UpdateTimeOfDay();
+
+            //disable player controller and make him look at east
         }
 
         protected void Update()
@@ -52,6 +54,8 @@ namespace Borodar.FarlandSkies.LowPoly
             if  (delta_day <= _dayNightCycle.GetSunrise() && _dayNightCycle.GetSunrise() <= CycleProgress)
             {
                 Debug.Log("new day");
+
+                //enable player controller
             }
             else if ((delta_day <= _dayNightCycle.GetSunset() && _dayNightCycle.GetSunset() <= CycleProgress))
             //else if ((delta_day <= 85 && 85 <= CycleProgress))
@@ -60,6 +64,8 @@ namespace Borodar.FarlandSkies.LowPoly
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 
             }
+
+            //get time before and enable player controller shit
 
 
             //say: NEW NIGHT
