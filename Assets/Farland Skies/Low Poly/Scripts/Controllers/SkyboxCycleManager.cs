@@ -20,6 +20,7 @@ namespace Borodar.FarlandSkies.LowPoly
         private SkyboxDayNightCycle _dayNightCycle;
 
         [SerializeField] GameObject player;
+        [SerializeField] GameObject masterLock;
 
         //---------------------------------------------------------------------
         // Messages
@@ -67,11 +68,14 @@ namespace Borodar.FarlandSkies.LowPoly
 
                 //enable player controller
             }
-            else if ((delta_day <= _dayNightCycle.GetSunset() && _dayNightCycle.GetSunset() <= CycleProgress))
+            //else if ((delta_day <= _dayNightCycle.GetSunset() && _dayNightCycle.GetSunset() <= CycleProgress))
+            else if (delta_day <= 75 && 75 <= CycleProgress)
             //else if ((delta_day <= 85 && 85 <= CycleProgress))
             {
                 //Debug.Log("new night");
+                if (masterLock.GetComponent<MasterLock>().locked == false){
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                }
 
             }
 

@@ -23,6 +23,8 @@ public class MasterLock : MonoBehaviour
     [SerializeField] private GameObject towelLock;
     [SerializeField] private GameObject aloeLock;
 
+    public bool locked = false;
+
     void Update(){
         // print( (ItemColliderStay glassesLock).getSprung());
         
@@ -36,6 +38,9 @@ public class MasterLock : MonoBehaviour
         bool dtrue = aloeLock.GetComponent<ItemColliderStay>().getSprung();
         if (atrue && btrue && ctrue && dtrue){
             print("hooooooly shittt");
+            locked = true;
+        }else{
+            locked = false;
         }
         print("start");
         print(glassesLock.GetComponent<ItemColliderStay>().getSprung());
